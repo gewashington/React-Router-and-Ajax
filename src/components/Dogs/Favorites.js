@@ -1,13 +1,15 @@
 import React from 'react';
 
-const Favorites = (props) => (
-  <div>
-        <button onClick={props.removeFromFavs}> Remove from Favorites </button>
-        <button onClick={props.addToFavs}> Add To Favorites </button>
-        {props.dogs}
-        {console.log(props)}
-</div>
-
-)
+const Favorites = ({ dogs }) => {
+  return (
+    <ul>
+      {dogs.map(dog => (
+        <li key={dog}>
+            <img alt="" src={dog} />
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 export default Favorites;

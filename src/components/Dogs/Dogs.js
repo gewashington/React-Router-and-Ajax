@@ -9,7 +9,7 @@ class Dogs extends React.Component {
     super();
 
     this.state = {
-      favDogs: ['doberman']
+      favDogs: []
     };
   }
 
