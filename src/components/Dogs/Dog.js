@@ -9,7 +9,7 @@ const styles = {
   }
 };
 
-const Dog = ({ imageURL }) => (
+const Dog = ({ imageURL, isFavDog }) => (
   <div style={styles.container}>
     {imageURL ? <img style={styles.img} alt="" src={imageURL} /> : "loading..."}
   </div>

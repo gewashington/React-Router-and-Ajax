@@ -26,24 +26,22 @@ class Dogs extends React.Component {
 };
 
 
-
 removeFromFavs = id => {
   console.log('CLICK REMOVE!')
    const { favDogs } = this.state;
    this.setState({
-     favDogs: favDogs.filter(dog => dog.id !== dog)
+     favDogs: favDogs.filter(dog => dog !== dog)
    });
  };
 
- renderDogs = () => {
+ renderFavoriteDogs = () => {
   const { favDogs } = this.state;
-  return <Favorites dogs={this.state.favDogs} addToFavs={this.addToFavs} removeFromFavs={this.removeFromFavs}/>;
+  return <Favorites dogs={this.state.favDogs} removeFromFavs={this.removeFromFavs}/>;
 };
 
   renderBreedsContainer = () => {
-    return <DogBreedsContainer addToFavs={this.addToFavs} removeFromFavs={this.removeFromFavs} favDogs={this.state.favDogs} />
+  return <DogBreedsContainer addToFavs={this.addToFavs} favDogs={this.state.favDogs} />
   }
-
 
   render() {
     return (
@@ -51,7 +49,7 @@ removeFromFavs = id => {
         <Switch>
           <Route path="/dogs/breeds" component={this.renderBreedsContainer} />
           <Route path="/dogs/random" component={RandomDog} />
-          <Route path="/dogs/fav" component={this.renderDogs} />
+          <Route path="/dogs/fav" component={this.renderFavoriteDogs} />
         </Switch>
       </div>
     );

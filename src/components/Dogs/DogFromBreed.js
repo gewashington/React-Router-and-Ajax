@@ -27,6 +27,11 @@ class DogFromBreed extends React.Component {
     console.log("Dog saved!")
   };
 
+  removeFromFavs = () => {
+    this.props.removeFromFavs(this.state.imageURL)
+    console.log("Dog filtered out!")
+  }
+
   render() {
     console.log("Dog from Breed Props:", this.props)
     const { imageURL } = this.state;
@@ -34,10 +39,8 @@ class DogFromBreed extends React.Component {
     return (
       <div>
         <h2>{breed}</h2>
-        <h1>For regular breed</h1>
         <Dog imageURL={imageURL} onClick={this.getPicture} />
         <button onClick={this.getPicture}> One More </button>
-        <button onClick={this.props.removeFromFavs}> Remove from Favorites </button>
         <button onClick={this.addToFavs}> Add To Favorites </button>
       </div>
     );
